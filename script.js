@@ -182,3 +182,27 @@ function updateStats() {
 }
 displayTasks();
 updateStats();
+let deferredPrompt;
+
+const installBtn = document.getElementById("installBtn");
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+    installBtn.style.display = "inline-block";
+});
+
+installBtn.addEventListener("click", async () => {
+
+    installBtn.style.display = "none";
+
+    deferredPrompt.prompt();
+
+    const { outcome } = await deferredPrompt.userChoice;
+
+    console.log("Install:", outcome);
+
+    deferredPrompt = null;
+});
