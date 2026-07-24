@@ -1,0 +1,10 @@
+{
+  "name": "TaskFlow Pro",
+  "short_name": "TaskFlow",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "description": "Modern Task Management App",
+  "icons": []
+}
