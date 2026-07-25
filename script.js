@@ -178,7 +178,11 @@ function updateStats() {
 
     document.getElementById("highPriority").textContent =
         tasks.filter(task => task.priority === "High").length;
+const completed = tasks.filter(task => task.completed).length;
+const percent = tasks.length === 0 ? 0 : Math.round((completed / tasks.length) * 100);
 
+document.getElementById("progressBar").value = percent;
+document.getElementById("progressText").textContent = percent + "% Completed";
 }
 displayTasks();
 updateStats();
